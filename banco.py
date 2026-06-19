@@ -180,6 +180,32 @@ def consultaSaidas():
             else:
                 print("A saída não foi encontrada.")
 
+def gerarRelatorio():
+    print("Relatório do Mês:")
+    lista = []
+    with open("entradas.csv") as f:
+            lista = [linha for linha in f.read().splitlines() if linha.strip()]
+
+    total_entradas = 0
+    for linha in lista:
+        colunas = linha.split(";")
+        total_entradas += float(colunas[1])
+
+    print("Total de Entradas: R$", total_entradas)
+
+    with open("saidas.csv") as f:
+            lista = [linha for linha in f.read().splitlines() if linha.strip()]
+
+    total_saidas = 0
+    for linha in lista:
+        colunas = linha.split(";")
+        total_saidas += float(colunas[1])
+    print("Total de Saídas: R$", total_saidas)
+
+
+
+    saldo = total_entradas - total_saidas
+    print("Saldo do mês(entradas-saidas): R$", saldo)
 # Fim funções            
 print("\033[32m\n---Bem vindo ao sistema de finanças" ,nome,"---\033[0m")
 senhaVldc = input("Digite a sua senha: ")
@@ -210,6 +236,9 @@ if senhaVldc == senha:
 
         elif escolha == '3':
             consultaSaidas()
+
+        elif escolha == '4':
+            gerarRelatorio()
 
         else:
             print("Opção Inválida")
