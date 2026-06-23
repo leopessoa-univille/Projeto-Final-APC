@@ -32,6 +32,7 @@ def consultaCategorias():
                     f.write(nome)
                     f.write(";")
                     f.write(valor)
+                    f.write(";")
                 print("categoria adicinada.")
                 print("\n")
 
@@ -93,6 +94,7 @@ def consultaEntradas():
                 f.write(data)
                 f.write(";")
                 f.write(valor)
+                f.write(";")
             print("entrada adicinada.")
             print("\n")
 
@@ -151,6 +153,7 @@ def consultaSaidas():
                 f.write(data)
                 f.write(";")
                 f.write(valor)
+                f.write(";")
             print("saída adicionada.")
             print("\n")
 
@@ -205,7 +208,7 @@ def gerarRelatorio():
 
 
     saldo = total_entradas - total_saidas
-    print("Saldo do mês(entradas-saidas): R$", saldo)
+    print("Saldo do mês(entradas-saidas): R$", saldo,"\n")
 # Fim funções            
 print("\033[32m\n---Bem vindo ao sistema de finanças" ,nome,"---\033[0m")
 senhaVldc = input("Digite a sua senha: ")
